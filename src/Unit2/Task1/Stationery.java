@@ -37,7 +37,7 @@ public abstract class Stationery {
 
     @Override
     public int hashCode() {
-        return (int) (cost*100) + name.hashCode();
+        return (int) (cost*100) + name.hashCode() + getClass().hashCode();
     }
 
     @Override
