@@ -124,8 +124,11 @@ public class Task1 {
         Notepad n1 = new Notepad("канцелярка", 10);
         Notepad n2 = new Notepad("блокнот", 10);
         System.out.println("p1 эквивалентно p2 " + p1.equals(p2));
+        System.out.println("хешкоды у p1 и p2 равны - " + (p1.hashCode() == p2.hashCode()));
         System.out.println("p1 эквивалентно n1 " + p1.equals(n1));
+        System.out.println("хешкоды у p1 и n1 равны - " + (p1.hashCode() == n1.hashCode()));
         System.out.println("n1 эквивалентно n2 " + n1.equals(n2));
+        System.out.println("хешкоды у n1 и n2 равны - " + (n1.hashCode() == n2.hashCode()));
 
         System.out.println();
         Employee e1 = new Employee(38, "Петров");
