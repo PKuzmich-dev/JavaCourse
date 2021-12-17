@@ -6,8 +6,8 @@ package Unit2.Task1;
  * @version 1.0
  */
 public abstract class Stationery {
-    protected String name;
-    protected double cost;
+    private String name;
+    private double cost;
 
     Stationery(String name, double cost) {
         this.name = name;
