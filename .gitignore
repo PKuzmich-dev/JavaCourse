@@ -3,4 +3,7 @@
 /.idea/
 JavaCourse.iml
 /src/TestClone
-/src/Unit2/*.java
+/src/Unit2/Abstract.java
+/src/Unit2/ChildInOtherPack.java
+/src/Unit2/Main.java
+/src/Unit2/Testable.java
