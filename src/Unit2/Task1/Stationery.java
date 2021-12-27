@@ -26,8 +26,12 @@ public abstract class Stationery {
         this.cost = cost;
     }
 
-    double getCost(){
+    public double getCost(){
         return cost;
+    }
+
+    public String getName(){
+        return name;
     }
 
     @Override

@@ -1,2 +1,6 @@
 # Project exclude paths
 /out/
+/.idea/
+JavaCourse.iml
+/src/TestClone
+/src/Unit2/*.java

@@ -13,12 +13,6 @@ import java.util.ArrayList;
  */
 public class Task2 {
     public static void main(String[] args) {
-        Stationery p = new Pen("ручка", 10);
-        Notepad n = new Notepad("блокнот", 100);
-
-        ArrayList<Stationery> juniorKit = new ArrayList();
-
-        juniorKit.add(p);
-        juniorKit.add(n);
+        JuniorKit jk = new JuniorKit();
     }
 }

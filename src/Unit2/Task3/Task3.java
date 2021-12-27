@@ -2,7 +2,7 @@ package Unit2.Task3;
 
 public class Task3 {
     public static void main(String[] args) {
-
+        
         Contact petrov = new Contact("Petrov");
         Contact ivanov = new Contact("Ivanov");
         Contact sidorov = new Contact("Sidorov");
