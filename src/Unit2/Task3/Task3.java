@@ -1,45 +1,97 @@
 package Unit2.Task3;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Task3 {
-    public static void main(String[] args) {
-        
-        Contact petrov = new Contact("Petrov");
-        Contact ivanov = new Contact("Ivanov");
-        Contact sidorov = new Contact("Sidorov");
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        WhatsApp whatsapp = new WhatsApp();
-        Viber viber = new Viber();
-        Telegram telegram = new Telegram();
+    public static void main(String[] args) throws IOException {
+        boolean inMainMenu = true;
+        int mainMenuNum;
+        Messenger messenger;
 
-        petrov.setMessenger(whatsapp);
-        petrov.sendMessage(ivanov, "Иванов, привет! Как дела?");
-        petrov.setMessenger(viber);
-        petrov.sendMessage(sidorov, "Сидоров, привет! Как тебе viber?");
+        Task3 task3 = new Task3();
 
-        ivanov.setMessenger(telegram);
-        ivanov.sendMessage(petrov, "Петров, привет! Пошли обедать");
-        ivanov.setMessenger(whatsapp);
-        ivanov.sendMessage(sidorov, "Сидоров, привет! Как тебе эта программа?");
-
-        sidorov.setMessenger(viber);
-        sidorov.sendMessage(petrov, "Петров, привет! Я заболел");
-        sidorov.setMessenger(telegram);
-        sidorov.sendMessage(ivanov, "Иванов, привет! Я увольняюсь");
-
-        System.out.println();
-        petrov.setMessenger(telegram);
-        System.out.println("Петров получил сообщение");
-        System.out.println(petrov.readMessage());
-
-        System.out.println();
-        ivanov.setMessenger(whatsapp);
-        System.out.println("Иванов получил сообщение");
-        System.out.println(ivanov.readMessage());
-
-        System.out.println();
-        sidorov.setMessenger(viber);
-        System.out.println("Сидоров получил сообщение");
-        System.out.println(sidorov.readMessage());
+        while(inMainMenu){
+            task3.mainMenu();
+            mainMenuNum = Integer.parseInt(task3.br.readLine());
+            switch (mainMenuNum){
+                case 1:
+                    messenger = new Viber();
+                    task3.run(messenger);
+                    break;
+                case 2:
+                    messenger = new WhatsApp();
+                    task3.run(messenger);
+                    break;
+                case 3:
+                    messenger = new Telegram();
+                    task3.run(messenger);
+                    break;
+                case 9:
+                    inMainMenu = false;
+                    break;
+            }
+        }
+        task3.br.close();
     }
 
+    void mainMenu() {
+        System.out.println();
+        System.out.println("Выберите мессенджер");
+        System.out.println("1 - Viber");
+        System.out.println("2 - WhatsApp");
+        System.out.println("3 - Telegram");
+        System.out.println("9 - выйти");
+    }
+
+    void run(Messenger messenger) throws IOException {
+
+        String userLoginName;
+        int messengerMenuNum;
+        boolean inMessengerMenu = true;
+        String recipientLogin;
+        String messageText;
+        Message message;
+
+
+        System.out.println("введите логин");
+        userLoginName = br.readLine();
+
+        while(inMessengerMenu){
+            messengerMenu();
+            messengerMenuNum = Integer.parseInt(br.readLine());
+            switch (messengerMenuNum){
+                case 1:
+                    System.out.println("введите логин адресата");
+                    recipientLogin = br.readLine();
+                    System.out.println("введите текст сообщения");
+                    messageText = br.readLine();
+                    messenger.sendMessage(new Message(userLoginName, recipientLogin, messageText));
+                    break;
+                case 2:
+                    message = messenger.readMessage(userLoginName);
+                    System.out.println(messenger.toString() + (message == null ? " нет сообщений" : message));
+                    break;
+                case 3:
+                    System.out.println("введите логин");
+                    userLoginName = br.readLine();
+                    break;
+                case 9:
+                    inMessengerMenu = false;
+                    break;
+            }
+        }
+    }
+
+    void messengerMenu(){
+        System.out.println();
+        System.out.println("Выберите необходимое действие");
+        System.out.println("1 - написать сообщение");
+        System.out.println("2 - получить сообщение");
+        System.out.println("3 - перелогиниться");
+        System.out.println("9 - выйти");
+    }
 }
