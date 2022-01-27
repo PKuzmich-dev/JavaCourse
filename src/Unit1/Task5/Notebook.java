@@ -7,7 +7,7 @@ package Unit1.Task5;
  * @version 1.0
  */
 public class Notebook {
-    private NotebookRecord record[];
+    private NotebookRecord[] record;
     private int recordPos = 0;
 
     /**
@@ -15,7 +15,7 @@ public class Notebook {
      *
      * @param recordCount количество записей в блокноте
      */
-    Notebook(int recordCount) {
+    public Notebook(int recordCount) {
         record = new NotebookRecord[recordCount];
     }
 
@@ -25,13 +25,8 @@ public class Notebook {
      *
      * @param nr запись для добавления
      */
-    void addRecord(NotebookRecord nr) {
-        if (recordPos == (record.length)) {
-            System.out.println("Блокнот заполнен");
-        }
-        else {
-            record[recordPos++] = nr;
-        }
+    public void addRecord(NotebookRecord nr) {
+        record[recordPos++] = nr;
     }
 
     /**
@@ -41,21 +36,33 @@ public class Notebook {
      * @param nr номер заменяемой записи
      * @param recordNum новая запись
      */
-    void changeRecord(NotebookRecord nr, int recordNum) {
-        if (recordNum >= 0 && recordNum < recordPos) {
-            record[recordNum] = nr;
-        }
-        else {
-            System.out.println("Записи №" + recordNum + " не существует");
-        }
+    public void changeRecord(NotebookRecord nr, int recordNum) {
+        record[recordNum] = nr;
     }
 
     /**
      * Выводит на экран все записи из блокнота
      */
-    void show() {
+    public void show() {
         for (int i = 0; i < recordPos; i++){
             System.out.println(record[i]);
         }
+    }
+
+    /**
+     * Возвращает все записи
+     *
+     */
+    public NotebookRecord[] getAllRecord(){
+        return record;
+    }
+
+    /**
+     * Возвращает запись по номеру
+     *
+     * @param nr номер заменяемой записи
+     */
+    public NotebookRecord getRecord(int nr){
+        return record[nr];
     }
 }

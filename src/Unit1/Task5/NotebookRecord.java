@@ -14,7 +14,7 @@ public class NotebookRecord {
      *
      * @param text Строка записи
      */
-    NotebookRecord(String text) {
+    public NotebookRecord(String text) {
         this.text = text;
     }
 
