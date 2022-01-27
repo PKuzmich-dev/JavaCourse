@@ -3,6 +3,7 @@ package Unit3;
 import Unit1.Task5.Notebook;
 import Unit1.Task5.NotebookRecord;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 import Unit2.Task1.Employee;
 import org.junit.*;
@@ -41,13 +42,17 @@ public class NotebookTest {
     @Test
     public void show(){
         System.out.println("проверка вывода содержимого блокнота");
-        Notebook nb = new Notebook(5);
+        final int recordcount = 10;
+        NotebookRecord nr = mock(NotebookRecord.class);
 
-        for (int i=0; i<5; i++){
-            nb.addRecord(new NotebookRecord("запись №" + i));
+        Notebook nb = new Notebook(recordcount);
+
+        for (int i=0; i<recordcount; i++){
+            nb.addRecord(nr);
         }
 
         nb.show();
+        verify(nr, times(recordcount)).getText();
     }
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)

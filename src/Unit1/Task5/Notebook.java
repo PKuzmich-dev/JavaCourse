@@ -45,7 +45,7 @@ public class Notebook {
      */
     public void show() {
         for (int i = 0; i < recordPos; i++){
-            System.out.println(record[i]);
+            System.out.println(record[i].getText());
         }
     }
 

@@ -26,4 +26,8 @@ public class NotebookRecord {
     public String toString() {
         return text;
     }
+
+    public String getText(){
+        return text;
+    }
 }
