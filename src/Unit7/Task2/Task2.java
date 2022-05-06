@@ -155,7 +155,7 @@ public class Task2 {
             contact.setLastName("Заводовская");
             bd.update(contact);
             // проверяем как обновили
-            List<Contact> ls = bd.get("city = 'Махачкала'");
+            List<Contact> ls = bd.get("id = '" + contact.getId() + "'");
             System.out.println("после обновления");
             System.out.println(ls);
 
