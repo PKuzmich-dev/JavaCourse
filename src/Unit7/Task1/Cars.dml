@@ -1,0 +1,13 @@
+insert into CAR_BRAND (BRAND) values ('Жигули');
+insert into CAR_BRAND (BRAND) values ('BMW');
+insert into car (NUM, BRAND_ID, model) values ('о7310пк', 1, 'шестерка');
+insert into car (NUM, BRAND_ID, model) values ('x301mm33', 2, 'X3');
+insert into car (NUM, BRAND_ID, model) values ('a001pa33', 2, 'X5');
+insert into CONTACT (LAST_NAME, FIRST_NAME, CITY) values ('Невежин', 'Роман', 'Москва');
+insert into CONTACT (LAST_NAME, FIRST_NAME, CITY) values ('Рязанов', 'Михаил', 'Рязань');
+insert into CONTACT (LAST_NAME, FIRST_NAME, MID_NAME, CITY) values ('Кузмич', 'Павел', 'Анатольевич', 'Владимир');
+insert into CONTACT_CAR (CONTACT_ID, CAR_ID) values (1,1);
+insert into CONTACT_CAR (CONTACT_ID, CAR_ID) values (3,2);
+insert into CONTACT_CAR (CONTACT_ID, CAR_ID) values (3,3);
+insert into CONTACT_CAR (CONTACT_ID, CAR_ID) values (2,2);
+insert into CONTACT_CAR (CONTACT_ID, CAR_ID) values (3,1);
