@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+  <changeSet id="create-table-contact" author="pkuzmich">
+    <createTable tableName="contact">
+      <column name="id" type="int" autoIncrement="true">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="lastname" type="varchar(50)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="first_name" type="varchar(50)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="mid_name" type="varchar(50)"/>
+      <column name="city" type="varchar(100)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="int" defaultValue="0">
+        <constraints nullable="false"/>
+      </column>
+      <column name="deleted" type="datetime"/>
+    </createTable>
+    <createIndex indexName="contact_i1" tableName="contact">
+      <column name="lastname"/>
+      <column name="first_name"/>
+    </createIndex>
+  </changeSet>
+
+</databaseChangeLog>

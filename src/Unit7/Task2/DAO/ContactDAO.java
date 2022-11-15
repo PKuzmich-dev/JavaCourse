@@ -1,6 +1,5 @@
 package Unit7.Task2.DAO;
 
-import Unit7.Task2.Entity.Brand;
 import Unit7.Task2.Entity.Car;
 import Unit7.Task2.Entity.Contact;
 import java.sql.Connection;
@@ -11,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactDAO implements CRUDDAO<Contact> {
+public class ContactDAO implements Unit7.Task2.DAO.CRUDDAO<Contact> {
     private Connection connection;
     public ContactDAO(Connection connection) {
         this.connection = connection;
@@ -140,7 +139,7 @@ public class ContactDAO implements CRUDDAO<Contact> {
             }
 
             // получаем машины контакта из базы
-            List<Car> bdlistCars = new CarDAO(connection).getCarByContact(contact.getId());
+            List<Car> bdlistCars = new Unit7.Task2.DAO.CarDAO(connection).getCarByContact(contact.getId());
             List<Car> newCars = new ArrayList<>(contact.getListCars());
             // из списка удаляем машины, которые уже есть
             newCars.removeAll(bdlistCars);
@@ -165,7 +164,7 @@ public class ContactDAO implements CRUDDAO<Contact> {
                                      + "deleted is null " +
                                      ((searchSpec==null) ? "" : "and "+searchSpec));
             while(rs.next()){
-                List<Car> listcars = new CarDAO(connection).getCarByContact(rs.getInt("id"));
+                List<Car> listcars = new Unit7.Task2.DAO.CarDAO(connection).getCarByContact(rs.getInt("id"));
                 contacts.add(new Contact(rs.getInt("id"), rs.getString("last_name"),
                                          rs.getString("first_name"), rs.getString("mid_name"),
                                          rs.getString("city"), rs.getInt("version"), listcars));

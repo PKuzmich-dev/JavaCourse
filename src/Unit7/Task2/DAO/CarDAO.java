@@ -1,6 +1,5 @@
 package Unit7.Task2.DAO;
 
-import Unit7.Task2.Entity.Brand;
 import Unit7.Task2.Entity.Car;
 import Unit7.Task2.Entity.Contact;
 import java.sql.Connection;

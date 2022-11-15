@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+  <changeSet id="insert car_brand" author="pkuzmich">
+    <insert tableName="car_brand">
+      <column name="brand" value="Жигули"/>
+    </insert>
+    <insert tableName="car_brand">
+      <column name="brand" value="BMW"/>
+    </insert>
+    <rollback>
+      <delete tableName="car_brand">
+      </delete>
+    </rollback>
+  </changeSet>
+  <changeSet id="insert contact" author="pkuzmich">
+    <insert tableName="contact">
+      <column name="lastname" value="Невежин"/>
+      <column name="first_name" value="Роман"/>
+      <column name="city" value="Москва"/>
+    </insert>
+    <insert tableName="contact">
+      <column name="lastname" value="Рязанов"/>
+      <column name="first_name" value="Михаил"/>
+      <column name="city" value="Рязань"/>
+    </insert>
+    <rollback>
+      <delete tableName="contact">
+      </delete>
+    </rollback>
+  </changeSet>
+
+</databaseChangeLog>
