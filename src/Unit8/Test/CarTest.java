@@ -56,7 +56,10 @@ public class CarTest {
 
     @Test
     public void test1CreateCar(){
-        carTest = new Car(carNum, "пятерка", new CarBrand("KIA_Test"));
+        CarBrand carBrand = new CarBrand(carBrandName);
+        carBrandDAO.add(carBrand);
+
+        carTest = new Car(carNum, "пятерка", carBrand);
 
         carDAO.add(carTest);
 
@@ -79,8 +82,11 @@ public class CarTest {
         carTest = carDAO.getByNum(carNum);
         Integer carId = carTest.getId();
 
+        CarBrand carBrand = new CarBrand(carBrandName2);
+        carBrandDAO.add(carBrand);
+
         carTest.setNum("b000bb33");
-        carTest.setCarBrand(new CarBrand(carBrandName2));
+        carTest.setCarBrand(carBrand);
         carTest.setModel("шестерка");
 
         carDAO.update(carTest);

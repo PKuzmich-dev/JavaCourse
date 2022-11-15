@@ -12,15 +12,6 @@ public class CarDAO implements CRUDDAO<Car>{
     public void add(Car car){
         HibernateUtil.doInHibernate(session ->
                                     {
-                                        CarBrand carBrand = new CarBrandDAO().getByName(car.getCarBrand().getBrand());
-                                        if (carBrand == null){
-                                            carBrand = car.getCarBrand();
-                                            new CarBrandDAO().add(carBrand);
-                                        }
-                                        System.out.println("CarBrand Id = " + carBrand.getId());
-                                        carBrand = (CarBrand) session.merge(carBrand);
-
-                                        car.setCarBrand(carBrand);
                                         session.save(car);
                                     }
                                     );
@@ -42,21 +33,6 @@ public class CarDAO implements CRUDDAO<Car>{
     public void update(Car car) {
         HibernateUtil.doInHibernate(session ->
                                     {
-                                        String brandName = car.getCarBrand().getBrand();
-                                        CarBrand carBrand;
-                                        try {
-                                            carBrand = session
-                                                .createQuery("select cb from CarBrand cb where cb.brand = ?1",
-                                                             CarBrand.class)
-                                                .setParameter(1, brandName)
-                                                .getSingleResult();
-                                            System.out.println("Найдена марка");
-                                        }
-                                        catch(NoResultException e){
-                                            carBrand = car.getCarBrand();
-                                            session.save(carBrand);
-                                        }
-                                        car.setCarBrand(carBrand);
                                         session.update(car);
                                     }
         );

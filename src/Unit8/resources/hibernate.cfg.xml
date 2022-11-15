@@ -17,8 +17,6 @@
     <mapping class="Unit8.domain.Car"/>
     <mapping class="Unit8.domain.CarBrand"/>
     <mapping class="Unit8.domain.Contact"/>
-    <mapping class="Unit8.domain.Post"/>
-    <mapping class="Unit8.domain.PostComment"/>
     <!--<mapping class="Unit8.domain.ContactCar"/>-->
   </session-factory>
 </hibernate-configuration>
