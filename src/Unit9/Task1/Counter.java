@@ -1,7 +1,7 @@
 package Unit9.Task1;
 
 public class Counter {
-    int n;
+    private int n;
 
     synchronized void inc(){
         n++;
