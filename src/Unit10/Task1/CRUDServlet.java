@@ -193,7 +193,7 @@ public class CRUDServlet extends HttpServlet {
             Contact contact = (Contact) obj;
             return "{\"id\":\"" + contact.getId() + "\",\"lastName\":\"" + contact.getLastName() +
                 "\",\"firstName\":\"" + contact.getFirstName() + "\",\"midName\":\"" + contact.getMidName() +
-                "\",\"city\":\"" + contact.getCity() +"\"}";
+                "\",\"city\":\"" + contact.getCity() +"\",\"version\":" + contact.getVersion() + "}";
         }
         return "{\"error\":\"объект не определен\"}";
     }
